@@ -1,15 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-    <h1><%= title %></h1>
-    Hello EJS!
+<body class="bg-light py-5">
+
+    <div class="container main-container" style="max-width: 900px;">
+        <h1 class="text-center mb-4 text-primary fw-bold"><%= title %></h1>
+        
+        
+        <form id="foglalasForm" action="/ujFoglalas" method="POST">
+           
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h2 class="card-title h4 mb-3 text-secondary">Foglalási adatok</h2>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label fw-medium">Teljes név</label>
+                           
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Név.." required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label fw-medium">Email</label>
+                            
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email.." required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="startDate" class="form-label fw-medium">Válassz Időpontot</label>
+                            
+                            <input type="date" class="form-control" id="startDate" name="startDate" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="guests" class="form-label fw-medium">Vendégek száma: </label>
+                            
+                            <input type="number" class="form-control" id="guests" name="guests" placeholder="Vendégek száma.." required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+
+            <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
+                <button type="submit" class="btn btn-primary btn-lg shadow-sm fw-bold py-3">Foglalás leadása</button>
+            </div>
+            
+        </form>
+    </div>
+
 </body>
 </html>
